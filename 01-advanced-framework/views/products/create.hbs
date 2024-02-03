@@ -1,0 +1,11 @@
+{{#extends "base"}}
+
+{{#block "content"}}
+<form method="POST">
+    {{{form}}} 
+    {{!-- Why is it in triple braces - this will allow for the formating to show up and to convert dangerous code into text --}}
+    <input type="submit" class="btn btn-primary mt-3" />
+</form>
+{{/block}}
+
+{{/extends}}
