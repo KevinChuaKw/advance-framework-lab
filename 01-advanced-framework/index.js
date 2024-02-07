@@ -3,6 +3,11 @@ const hbs = require("hbs");
 const wax = require("wax-on");
 require("dotenv").config();
 
+// import all the dependencies for sessison
+const session = require('express-session');
+const flash = require('connect-flash');
+const FileStore = require('session-file-store')(session);
+
 // create an instance of express app
 let app = express();
 
@@ -23,6 +28,14 @@ app.use(
   })
 );
 
+// set up sessions
+app.use(session({
+  store: new FileStore(),
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
+
 const landingRoutes = require('./routes/landing.js')
 const productRoutes = require('./routes/products')
 
@@ -40,4 +53,6 @@ main();
 app.listen(3000, () => {
   console.log("Server has started");
 });
+
+
 
