@@ -33,8 +33,18 @@ app.use(session({
   store: new FileStore(),
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true // this is for the browers to issue a new session when there is no pre existing session
 }))
+
+// enable flash messaging
+app.use(flash())
+
+
+app.use(function (req,res, next){
+  res.locals.succcess_messages = req.flash("success_messages");
+  res.locals.error_messages = req.flash("error_messages");
+  next(); 
+})
 
 const landingRoutes = require('./routes/landing.js')
 const productRoutes = require('./routes/products')
