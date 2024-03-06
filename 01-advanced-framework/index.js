@@ -47,12 +47,14 @@ app.use(function (req,res, next){
 })
 
 const landingRoutes = require('./routes/landing.js')
+// You need the './' when doing up the routes so express knows 
+// that you are looking for the folder in the current directory
 const productRoutes = require('./routes/products')
 
 async function main() {
     // if the requested url 
     // begins with '/', send it
-    // to the landingRoutes router
+    // to the correspoding router
     app.use('/', landingRoutes);  
     app.use('/products', productRoutes);   
     
