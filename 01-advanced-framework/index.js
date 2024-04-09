@@ -62,6 +62,8 @@ async function main() {
 
 main();
 
+// Keeping the code alive 
+
 app.listen(3000, () => {
   console.log("Server has started");
 });
