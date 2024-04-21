@@ -12,6 +12,7 @@ const Product = bookshelf.model('Product', {
     tableName:'products'
 });
 
+// Maintaining the code
 
 
 module.exports = { Product };
